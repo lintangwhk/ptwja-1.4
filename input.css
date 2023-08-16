@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .center {
+        @apply px-6 py-6 flex justify-between items-center 2xl:px-80 md:px-12 lg:px-32
+    }
+
+    .center-section {
+        @apply flex flex-col gap-12 px-6 py-12 items-center justify-center md:px-20 lg:px-40 2xl:px-96 xl:py-24
+    }
+    
+}
