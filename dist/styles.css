@@ -696,6 +696,14 @@ video {
   gap: 2rem;
 }
 
+.gap-10 {
+  gap: 2.5rem;
+}
+
+.gap-20 {
+  gap: 5rem;
+}
+
 .overflow-x-hidden {
   overflow-x: hidden;
 }
@@ -847,10 +855,6 @@ video {
     width: fit-content;
   }
 
-  .md\:flex-row {
-    flex-direction: row;
-  }
-
   .md\:items-center {
     align-items: center;
   }
@@ -889,6 +893,10 @@ video {
 
   .lg\:flex-row-reverse {
     flex-direction: row-reverse;
+  }
+
+  .lg\:gap-0 {
+    gap: 0px;
   }
 
   .lg\:text-left {
