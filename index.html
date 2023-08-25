@@ -8,12 +8,13 @@
     <link href="/dist/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script> 
+
 </head>
 
 <body class="bg-primary text-neutral overflow-x-hidden">
     <header>
         <nav class="center">
-            <a class="flex items-center gap-4 font-bold text-xl" href="index.html"><img class="w-80" src="assets/256t.svg"></a>
+            <a class="flex items-center gap-4 font-bold text-xl mx-auto" href="index.html"><img class="w-80" src="assets/256t.svg"></a>
             <div class=" hidden md:flex gap-8 font-bold">
                 <a href="index.html">Home</a>
                 <a href="#about">About Us</a>
@@ -49,12 +50,12 @@
             <div class="flex flex-col gap-4 lg:w-1/2">
                 <h2 class="xl:text-5xl text-3xl font-bold text-center lg:text-left">Make Your Idea into Reality</h2>
                 <p class="xl:text-2xl pb-8 text-center lg:text-left">We're excited to hear your ideas and project plan. Let's bring them to life together!</p>
-                <form class="flex flex-col gap-6" name="EmailForm" action="https://formsubmit.co/70faa1de1d4b2fadebe4fbfc93e1403d" method="POST">
-                    <input required class="p-2 border-2 outline-neutral" type="text" placeholder="Name" name="Name"></input>
-                    <input required class="p-2 border-2 outline-neutral" type="email" placeholder="Email" name="email"></input>
-                    <textarea required class="p-2 border-2 outline-neutral" placeholder="Your Idea" name="Message"></textarea>
-                <button id="submit" class="g-recaptcha md:mx-auto lg:mx-0 bg-secondary w-full md:w-fit p-3 text-white font-bold transition-all hover:bg-green-600 focus:ring-2">Submit</button>
+                <form class="flex flex-col gap-6">
+                    <input required class="p-2 border-2 outline-neutral" type="text" placeholder="Name" name="Name" id="name"></input>
+                    <input required class="p-2 border-2 outline-neutral" type="email" placeholder="Email" name="email" id="email"></input>
+                    <textarea required class="p-2 border-2 outline-neutral" placeholder="Your Idea" name="Message" id="msgContent"></textarea>
                 </form>
+                <a id="submit" class="md:mx-auto lg:mx-0 bg-secondary w-full md:w-fit p-3 text-white text-center font-bold transition-all hover:bg-green-600 focus:ring-2">Submit</a>
             </div>
         </div>
 
@@ -94,6 +95,25 @@
 </style>
 
 <script>
+
+document.getElementById("submit").addEventListener("click", function(event) {
+    event.preventDefault();
+    
+    var name = encodeURIComponent(document.getElementById("name").value);
+    var email = encodeURIComponent(document.getElementById("email").value);
+    var message = encodeURIComponent(document.getElementById("msgContent").value);
+    
+    var mailtoLink = "mailto:" + email + "?subject=Let's%20Work%20Together&body=Name:%20" + name + "%0AEmail:%20" + email + "%0AMessage:%20" + message;
+    
+    window.location.href = mailtoLink;
+});
+
+// function sendMail () {
+//     var name = $('#contact #name').val();
+//     var email = $('#contact #email').val();
+//     var message = $('#contact textarea').val();
+//     window.location.href = 'mailto:inquiry@igopher.net?subject=The subject - ' + name + ' (' + email + ')' + '&body=' + message;
+// };
 
 function box() {
 var reveals = document.querySelectorAll(".reveal");
